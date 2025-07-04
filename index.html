@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mawada Kamel - Flutter Developer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1e1b3a;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #2a254a;
+      color: white;
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      color: #ccc;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 950px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #d1b3ff;
+      border-bottom: 1px solid #3b355c;
+      padding-bottom: 0.5rem;
+    }
+
+    .card, .skill-item, .project, .contact-card {
+      background: #2a254a;
+      border: 1px solid #3e3762;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      word-break: break-word;
+    }
+
+    .dots {
+      display: flex;
+      gap: 4px;
+      margin-top: 0.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #a78bfa;
+      border-radius: 50%;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slides img {
+      width: 240px;
+      height: 480px;
+      object-fit: contain;
+      border-radius: 10px;
+      flex-shrink: 0;
+      margin-right: 15px;
+      border: 1px solid #3e3762;
+    }
+
+    /* On small screens, show one image and adjust margins */
+    @media (max-width: 768px) {
+      .slides img {
+        margin-right: 0;
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+      }
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .project {
+      margin-bottom: 2rem;
+    }
+
+    .project p {
+      margin-top: 0.5rem;
+    }
+
+    a {
+      color: #a78bfa;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .external-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .external-links a {
+      background: #2a254a;
+      border: 1px solid #3e3762;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      color: #a78bfa;
+      transition: 0.3s;
+    }
+
+    .external-links a:hover {
+      background: #3b355c;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mawada Kamel</h1>
+    <p>Flutter Developer</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <div class="card">
+      Skilled Flutter Developer with a solid foundation in building high-quality mobile applications.
+      Experienced in Dart, state management, and modern UI design. Focused on creating user-friendly, efficient solutions and eager to contribute to meaningful projects.
+    </div>
+  </section>
+
+  <section>
+  <h2>Skills</h2>
+  <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="skill-item">
+      <span>Dart</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>Flutter</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>Bloc & Cubit</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>GetX</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>Firebase</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>Clean Architecture</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>SharedPreferences</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>RESTful API</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>UI/UX</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+    <div class="skill-item">
+      <span>PHP</span>
+      <div class="dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="project">
+  <h3>Food Bridge</h3>
+
+  <div class="slider-container">
+    <div class="slides" id="slider0">
+      <img src="https://i.ibb.co/vxjYB9T0/5981252262380554414.jpg" />
+      <img src="https://i.ibb.co/hx7dz0LB/5981252262380554415.jpg" />
+      <img src="https://i.ibb.co/7t0zfvVS/5981252262380554416.jpg" />
+      <img src="https://i.ibb.co/FbJDV6PZ/5981252262380554417.jpg" />
+      <img src="https://i.ibb.co/xSwhSXxZ/5981252262380554418.jpg" />
+      <img src="https://i.ibb.co/Rpxsmm64/5981252262380554419.jpg" />
+      <img src="https://i.ibb.co/8SZhZwp/5981252262380554422.jpg" />
+      <img src="https://i.ibb.co/yFyrG3XJ/5981252262380554420.jpg" />
+      <img src="https://i.ibb.co/mVFZBDm3/5981252262380554421.jpg" />
+      <img src="https://i.ibb.co/0jp2Sk0k/5981252262380554425.jpg" />
+      <img src="https://i.ibb.co/27yxts0Q/5981252262380554423.jpg" />
+      <img src="https://i.ibb.co/7djB67JC/5981252262380554424.jpg" />
+      <img src="https://i.ibb.co/bMmFZ71g/5981252262380554426.jpg" />
+      <img src="https://i.ibb.co/DP550WnT/5981252262380554427.jpg" />
+      <img src="https://i.ibb.co/zThVZfBd/5981252262380554428.jpg" />
+      <img src="https://i.ibb.co/h1FjBnWb/5981252262380554429.jpg" />
+      <img src="https://i.ibb.co/prn6Y6Nn/5981252262380554430.jpg" />
+      <img src="https://i.ibb.co/PZjPTMST/5981252262380554431.jpg" />
+      <img src="https://i.ibb.co/ZpyQTcQ2/5981252262380554432.jpg" />
+
+    </div>
+    <button class="slider-btn prev" onclick="plusSlides(-1, 0)">&#10094;</button>
+    <button class="slider-btn next" onclick="plusSlides(1, 0)">&#10095;</button>
+  </div>
+
+  <p>Connects food donors with people in need. Role-based flows (Donor/Receiver/Admin), chat, location, and PHP + MySQL backend.</p>
+  <a href="https://github.com/Mawaddaaa/food_bridge.git">View on GitHub</a>
+</div>
+
+
+  <div class="project">
+    <h3>Salla</h3>
+    <div class="slider-container">
+      <div class="slides" id="slider1">
+        <img src="https://i.ibb.co/sv3HR31Q/5999211032473619284.jpg" />
+        <img src="https://i.ibb.co/JR0B56dD/5999211032473619285.jpg" />
+        <img src="https://i.ibb.co/Q31q3T8t/5999211032473619283.jpg" />
+        <img src="https://i.ibb.co/N23kRNFF/5999211032473619282.jpg" />
+        <img src="https://i.ibb.co/27pzMGph/5999211032473619281.jpg" />
+        <img src="https://i.ibb.co/nqDMg4vK/5999211032473619280.jpg" />
+        <img src="https://i.ibb.co/JR1504QJ/5999211032473619278.jpg" />
+        <img src="https://i.ibb.co/HLyC0KZW/5999211032473619279.jpg" />
+        <img src="https://i.ibb.co/d00Xgby8/5999211032473619277.jpg" />
+        <img src="https://i.ibb.co/h1BqZX7x/5999211032473619276.jpg" />
+        <img src="https://i.ibb.co/ds598XJs/5999211032473619275.jpg" />
+        <img src="https://i.ibb.co/5Xqh2ymG/5999211032473619274.jpg" />
+        <img src="https://i.ibb.co/Z1w3ys8S/5999211032473619273.jpg" />
+        <img src="https://i.ibb.co/3YWZ5NZ1/5999211032473619272.jpg" />
+        <img src="https://i.ibb.co/xqy2r2WF/5999211032473619271.jpg" />
+        <img src="https://i.ibb.co/Nnj1HfK5/5999211032473619270.jpg" />
+        
+        
+      </div>
+      <button class="slider-btn prev" onclick="plusSlides(-1, 1)">&#10094;</button>
+      <button class="slider-btn next" onclick="plusSlides(1, 1)">&#10095;</button>
+    </div>
+    <p>E-commerce Flutter app with search, product browsing, and Cubit state management.</p>
+    <a href="https://github.com/Mawaddaaa/shop_app.git">View on GitHub</a>
+  </div>
+
+  <div class="project">
+    <h3>Makeup App</h3>
+    <div class="slider-container">
+      <div class="slides" id="slider2">
+        <img src="https://i.ibb.co/KpsffwjF/5850719594845684752.jpg" />
+        <img src="https://i.ibb.co/Z6nnLn7r/5850719594845684753.jpg" />
+        <img src="https://i.ibb.co/t0gHhYZ/5850719594845684754.jpg" />
+        <img src="https://i.ibb.co/RGNSGrNc/5850719594845684755.jpg" />
+        <img src="https://i.ibb.co/DHVtL4ZG/5850719594845684756.jpg" />
+        <img src="https://i.ibb.co/v4XXm3Yj/5850719594845684757.jpg" />
+        <img src="https://i.ibb.co/fzYsfp1b/5850719594845684758.jpg" />
+        <img src="https://i.ibb.co/v6tSRDkc/5850719594845684759.jpg" />
+        <img src="https://i.ibb.co/KxG2DKqV/5850719594845684760.jpg" />
+        <img src="https://i.ibb.co/DD15Nrsy/5850719594845684761.jpg" />
+        <img src="https://i.ibb.co/PGsxwfZk/5850719594845684764.jpg" />
+        <img src="https://i.ibb.co/jPN2KVZX/5850719594845684765.jpg" />
+        <img src="https://i.ibb.co/1GnQYf8k/5850719594845684766.jpg" />
+        <img src="https://i.ibb.co/DDMQMjJR/5850719594845684767.jpg" />
+        <img src="https://i.ibb.co/MyV1ZWdg/5850719594845684768.jpg" />
+
+      </div>
+      <button class="slider-btn prev" onclick="plusSlides(-1, 2)">&#10094;</button>
+      <button class="slider-btn next" onclick="plusSlides(1, 2)">&#10095;</button>
+    </div>
+    <p>Cosmetic product app with elegant UI and personalized user experience.</p>
+    <a href="https://github.com/Mawaddaaa/makeup_app.git">View on GitHub</a>
+  </div>
+
+  <div class="project">
+    <h3>Todo App</h3>
+    <div class="slider-container">
+      <div class="slides" id="slider3">
+        <img src="https://i.ibb.co/kV2yN2Zr/5807657655735534646.jpg" />
+        <img src="https://i.ibb.co/bRLHLBsh/5807657655735534647.jpg" />
+        <img src="https://i.ibb.co/8D96V1KQ/5807657655735534648.jpg" />
+        <img src="https://i.ibb.co/psLzTzK/5807657655735534649.jpg" />
+        <img src="https://i.ibb.co/rR7dtFRS/5807657655735534650.jpg" />
+        <img src="https://i.ibb.co/VpxnMtbL/5807657655735534639.jpg" />
+        <img src="https://i.ibb.co/QFfsDn47/5807657655735534644.jpg" />
+        <img src="https://i.ibb.co/PHjX2D7/5807657655735534645.jpg" />
+
+      </div>
+      <button class="slider-btn prev" onclick="plusSlides(-1, 3)">&#10094;</button>
+      <button class="slider-btn next" onclick="plusSlides(1, 3)">&#10095;</button>
+    </div>
+    <p>Offline todo app using SQFlite and Bloc/Cubit with real-time updates.</p>
+    <a href="https://github.com/Mawaddaaa/CognoRise-InfoTech/tree/main/todo_app">View on GitHub</a>
+  </div>
+
+  <div class="project">
+    <h3>News App</h3>
+    <div class="slider-container">
+      <div class="slides" id="slider4">
+        <img src="https://i.ibb.co/fVpBYFfK/5997024498982962946.jpg" />
+        <img src="https://i.ibb.co/5X2dgL3V/5997024498982962944.jpg" />
+        <img src="https://i.ibb.co/hJDzsSft/5997024498982962945.jpg" />
+        <img src="https://i.ibb.co/ccSTSn8J/5997024498982962947.jpg" />
+        <img src="https://i.ibb.co/0wcDG9k/5997024498982962948.jpg" />
+        <img src="https://i.ibb.co/fVT1xjbQ/5997024498982962949.jpg" />
+        <img src="https://i.ibb.co/HLwnnxBK/5997024498982962950.jpg" />
+        <img src="https://i.ibb.co/bMqtNCjc/5997024498982962951.jpg" />
+        <img src="https://i.ibb.co/MD65SmwV/5997024498982962952.jpg" />
+        <img src="https://i.ibb.co/TqvzngMs/5997024498982962953.jpg" />
+        
+
+      </div>
+      <button class="slider-btn prev" onclick="plusSlides(-1, 4)">&#10094;</button>
+      <button class="slider-btn next" onclick="plusSlides(1, 4)">&#10095;</button>
+    </div>
+    <p>Real-time news fetching and categorized display using REST API.</p>
+    <a href="https://github.com/Mawaddaaa/News_app.git">View on GitHub</a>
+  </div>
+
+  <div class="project">
+    <h3>Alarm App</h3>
+    <div class="slider-container">
+      <div class="slides" id="slider5">
+        <img src="https://i.ibb.co/G4NLCZSH/5999211032473619291.jpg" />
+        <img src="https://i.ibb.co/N6qDqfBc/5999211032473619292.jpg" />
+        <img src="https://i.ibb.co/Ngg3rcmg/5999211032473619293.jpg" />
+        <img src="https://i.ibb.co/vxG1dktY/5999211032473619294.jpg" />
+        <img src="https://i.ibb.co/0yWyggCJ/5999211032473619295.jpg" />
+        <img src="https://i.ibb.co/pBRSjLwC/5999211032473619296.jpg" />
+        <img src="https://i.ibb.co/NnCLXhm8/5999211032473619297.jpg" />
+
+      </div>
+      <button class="slider-btn prev" onclick="plusSlides(-1, 5)">&#10094;</button>
+      <button class="slider-btn next" onclick="plusSlides(1, 5)">&#10095;</button>
+    </div>
+    <p>Alarm app with snooze, notifications, and real-time clock updates.</p>
+    <a href="https://github.com/Mawaddaaa/CognoRise-InfoTech/tree/main/alarm_app">View on GitHub</a>
+  </div>
+
+</section>
+<section>
+  <h2>Contact Info</h2>
+  <div class="contact-grid">
+    <div class="contact-card"><a href="mailto:dmawa6006@gmail.com">📧 dmawa6006@gmail.com</a></div>
+    <div class="contact-card">📱 +20 1018281754</div>
+  </div>
+</section>
+
+<section>
+  <h2>Find Me Online</h2>
+  <div class="external-links">
+    <a href="https://github.com/Mawaddaaa" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/mawada-kamel-322426246" target="_blank">LinkedIn</a>
+  </div>
+</section>
+
+<script>
+  // Fade-in effect
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(section => observer.observe(section));
+
+  // Sliders logic
+  const currentSlides = [0, 0, 0, 0, 0, 0]; // for 6 sliders
+  
+  function plusSlides(n, sliderIndex) {
+    const sliderId = `slider${sliderIndex}`;
+    const container = document.getElementById(sliderId);
+    const images = container.querySelectorAll("img");
+    const windowWidth = window.innerWidth;
+    
+    // Determine how many images to move based on screen size
+    let moveBy = 1;
+    if (windowWidth > 768) {
+      moveBy = 3; // Move by 3 images on larger screens
+    }
+    
+    currentSlides[sliderIndex] = (currentSlides[sliderIndex] + (n * moveBy) + images.length) % images.length;
+    
+    // Adjust for the last slide to not show empty space
+    if (currentSlides[sliderIndex] + moveBy > images.length) {
+      currentSlides[sliderIndex] = images.length - moveBy;
+    }
+    
+    // Calculate the width to move based on the number of images shown
+    const imageWidth = images[0].offsetWidth + 15; // width + margin
+    container.style.transform = `translateX(-${currentSlides[sliderIndex] * imageWidth}px)`;
+  }
+
+  // Initialize sliders on load
+  window.addEventListener('load', function() {
+    const sliders = document.querySelectorAll('.slides');
+    sliders.forEach((slider, index) => {
+      const images = slider.querySelectorAll("img");
+      const windowWidth = window.innerWidth;
+      
+      // Set initial position
+      if (windowWidth > 768) {
+        // On large screens, show 3 images at once
+        const imageWidth = images[0].offsetWidth + 15;
+        slider.style.transform = `translateX(-${currentSlides[index] * imageWidth}px)`;
+      } else {
+        // On small screens, show 1 image at a time
+        slider.style.transform = `translateX(-${currentSlides[index] * 100}%)`;
+      }
+    });
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    const sliders = document.querySelectorAll('.slides');
+    sliders.forEach((slider, index) => {
+      const images = slider.querySelectorAll("img");
+      const windowWidth = window.innerWidth;
+      
+      if (windowWidth > 768) {
+        // On large screens, adjust for showing 3 images
+        const imageWidth = images[0].offsetWidth + 15;
+        slider.style.transform = `translateX(-${currentSlides[index] * imageWidth}px)`;
+      } else {
+        // On small screens, adjust for showing 1 image
+        slider.style.transform = `translateX(-${currentSlides[index] * 100}%)`;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
